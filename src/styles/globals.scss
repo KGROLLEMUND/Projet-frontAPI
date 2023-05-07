@@ -1,0 +1,26 @@
+@import "./variables.scss";
+
+@font-face {
+  font-family: "Poppins_Regular";
+  src: url("../../public/fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Poppins_Bold";
+  src: url("../../public/fonts/Poppins-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Poppins_Light";
+  src: url("../../public/fonts/Poppins-Light.ttf");
+}
+
+body {
+  opacity: 0.8;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: $font_regular;
+}

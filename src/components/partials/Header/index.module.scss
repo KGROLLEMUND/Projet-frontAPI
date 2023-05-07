@@ -1,0 +1,67 @@
+@import "../../../styles/variables.scss";
+
+.header {
+  background-color: $white_color;
+  color: $black_color;
+  height: 60px;
+  border-bottom: 1px solid $black_color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navListItem {
+  margin: 0 30px;
+  white-space: nowrap;
+  padding-top: 1.5%;
+}
+
+.navListItem a {
+  color: $black_color;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.navListItem span {
+  color: $black_color;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.navListItemRight {
+  margin: 0 20px;
+}
+
+.navListItemRight a {
+  color: $black_color;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.logo {
+  margin-left: 20px;
+}
+
+.logo img {
+  height: 50px;
+}

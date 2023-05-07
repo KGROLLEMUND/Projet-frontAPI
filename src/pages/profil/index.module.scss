@@ -1,0 +1,46 @@
+@import "../../../styles/variables.scss";
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 8px solid $first_color;
+  border-radius: 2%;
+  background-color: white;
+}
+
+.centered1 {
+  display: flex;
+  padding-top: 10%;
+  width: 50%;
+  height: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
+}
+.flexContainer {
+  padding-top: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100px;
+}
+
+.flexItem {
+  margin: 0 10px;
+  font-size: 40px;
+  font-family: $font_bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  span {
+    font-family: $font_regular;
+  }
+}
