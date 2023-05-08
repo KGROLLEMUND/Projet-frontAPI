@@ -149,9 +149,6 @@ const Index = () => {
           className="btn__secondary"
           handleClick={(e) => submitRegister(e)}
         />
-        {clickError && (
-          <Notification type="warning" message="Champs manquant ou incorrect" />
-        )}
       </form>
     </>
   );

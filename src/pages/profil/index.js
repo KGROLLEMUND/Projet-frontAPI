@@ -105,6 +105,15 @@ const Index = () => {
                 placeholder="enter your email"
                 onChange={(e) => handleChange(e)}
               />
+              <Input
+                label="phone"
+                type="text"
+                name="phone"
+                value={userForm.phone}
+                isRequired={true}
+                placeholder="enter your phone"
+                onChange={(e) => handleChange(e)}
+              />
               <Button type="submit" title="modifier" className="btn__primary" />
             </form>
           </Modal>
@@ -120,12 +129,9 @@ const Index = () => {
                 <p className={styles.flexItem}>
                   Firstname: <span>{user.firstName}</span>
                 </p>
-
                 <p className={styles.flexItem}>
                   lastName: <span>{user.lastName}</span>
                 </p>
-              </div>
-              <div className={styles.flexContainer}>
                 <p className={styles.flexItem}>
                   Phone: <span>{user.phone}</span>
                 </p>

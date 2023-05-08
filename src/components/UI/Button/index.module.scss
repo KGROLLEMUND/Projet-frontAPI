@@ -14,19 +14,19 @@
   font-size: 18px;
   font-weight: 400;
   padding: 10px 100px 10px;
-  color: $first_color;
+  color: black;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
   transition: 0.3s all;
   &__primary {
-    background: $white_color;
+    background: white;
     color: $second_color;
     &:hover {
       background: $second_color;
-      border: 1px solid $white_color;
-      color: $white_color;
+      border: 1px solid white;
+      color: white;
     }
   }
   &__secondary {

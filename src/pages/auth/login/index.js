@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from "react";
-import UserContext from "@/context/UserContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useFetch from "@/hooks/useFetch";
@@ -8,66 +7,46 @@ import Button from "@/components/UI/Button/";
 import Title from "@/components/UI/Title";
 import Loading from "@/components/UI/Loading";
 import Notification from "@/components/UI/Notification";
+import UserContext from "@/context/UserContext";
 
 const Index = () => {
   const router = useRouter();
-
   const { login } = useContext(UserContext);
-
+  const [token, setToken] = useState();
   const [userForm, setUserForm] = useState({
     email: "",
     password: "",
   });
 
-  const [token, setToken] = useState();
-
   const { fetchData, data, error, loading } = useFetch({
-    url: "/api/v1/auth/login",
+    url: "/auth/login",
     method: "POST",
     body: userForm,
     token: null,
-  });
-  const {
-    data: user,
-    error: userError,
-    loading: userLoading,
-    fetchData: fetchDataUser,
-  } = useFetch({
-    url: "/api/v1/user",
-    method: "GET",
-    body: null,
-    token: token,
   });
 
   useEffect(() => {
     if (data.token) {
       setToken(data.token);
       localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+      if (data.isAdmin) {
+        router.push("/admin");
+      }
+      router.push("/account/profil");
     }
   }, [data]);
 
-  useEffect(() => {
-    fetchDataUser();
-    if (user.success) {
-      login({
-        firstName: user.user.firstName,
-        lastName: user.user.lastName,
-        email: user.user.email,
-      });
-      router.push("/account/profil");
-    }
-  }, [token, user]);
+  const submitLogin = (e) => {
+    e.preventDefault();
+    fetchData();
+  };
 
   const handleChange = (e) => {
     setUserForm({
       ...userForm,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const submitLogin = (e) => {
-    e.preventDefault();
-    fetchData();
   };
 
   return (
@@ -77,10 +56,9 @@ const Index = () => {
       <form onSubmit={(e) => submitLogin(e)}>
         <Input
           label="Email"
-          type="email"
           name="email"
           placeholder="veuillez saisir votre email"
-          required={true}
+          isRequired={true}
           onChange={(e) => handleChange(e)}
           value={userForm.email}
         />
@@ -89,7 +67,7 @@ const Index = () => {
           type="password"
           name="password"
           placeholder="veuillez saisir votre mot de passe"
-          required={true}
+          isRequired={true}
           onChange={(e) => handleChange(e)}
           value={userForm.password}
         />
@@ -98,7 +76,11 @@ const Index = () => {
       {error && <Notification type="warning" message={error.message} />}
       <p>
         Vous n'avez pas de compte ?{" "}
-        <Link href="/auth/register">Inscrivez-vous ?</Link>
+        <Link href="/auth/register">Inscrivez-vous ici</Link>
+      </p>
+      <p>
+        Mot de passe oublié ?{" "}
+        <Link href="/auth/forgot-password">Cliquez ici</Link>
       </p>
     </>
   );

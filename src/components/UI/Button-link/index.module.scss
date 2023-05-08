@@ -1,0 +1,88 @@
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 200;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: 0.3s all;
+
+    &__primary {
+        background: #000000;
+        color: white;
+        border: 1px solid #000000;
+        border-radius: 30px;
+
+        &:hover {
+            background: white;
+            border: 1px solid #000000;
+            color: #000000;
+        }
+    }
+
+    &__secondary {
+        background: white;
+        border: 1px solid black;
+
+        &:hover {
+            background: black;
+            color: white;
+        }
+    }
+
+    &__register {
+
+
+        &__userType {
+            background: #000000;
+            color: white;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            width: 100%;
+            margin: 10px;
+
+            &:hover {
+                background: white;
+                border: 1px solid #000000;
+                color: #000000;
+            }
+        }
+
+    }
+
+    &__link {
+        background: none;
+        border: none;
+        color: #000000;
+        font-size: 18px;
+        font-weight: 400;
+        text-decoration: underline;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        transition: 0.3s all;
+
+        &:hover {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+    }
+
+    &__admin {
+        background: #000000;
+        color: white;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        width: 20%;
+        margin: 10px;
+
+        &:hover {
+            background: white;
+            border: 1px solid #000000;
+            color: #000000;
+        }
+    }
+}

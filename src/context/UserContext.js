@@ -11,24 +11,20 @@ export default UserContext;
 
 export const UserContextProvider = ({ children }) => {
   const router = useRouter();
-
   const [user, setUser] = useState({});
-
   const [token, setToken] = useState();
-
   const [isLogged, setIsLogged] = useState(false);
-
+  const [isAdmin, setIsAdmin] = useState(false);
   const { data, error, loading, fetchData } = useFetch({
-    url: "/api/v1/user",
+    url: "/user",
     method: "GET",
     body: null,
     token: token,
   });
 
+
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log("token userConx : ", token);
-    console.log("isLogged : ", isLogged);
     if (token && !isLogged) {
       setToken(token);
       fetchData();
@@ -36,12 +32,25 @@ export const UserContextProvider = ({ children }) => {
   }, [token]);
 
   useEffect(() => {
+    if (isLogged){
+      if (user.isAdmin ) {
+        router.push("/admin")
+      }else if (!user.isAdmin) {
+        router.push("/")
+      }
+    }
+  }, [user, router])
+
+  useEffect(() => {
     if (data && data.success) {
-      login(data.user);
+      login(data);
     }
   }, [data]);
 
   const login = (data) => {
+    if (data.isAdmin) {
+      setIsAdmin(true)
+    }
     setUser(data);
     setIsLogged(true);
   };
@@ -50,11 +59,16 @@ export const UserContextProvider = ({ children }) => {
     setIsLogged(false);
     setUser({});
     localStorage.removeItem("token");
-    router.push("/");
+    router.push("/auth/login");
   };
+
   const updateUser = (data) => {
     setUser(data);
   };
+
+  const fetchUser = () => {
+    fetchData();
+  }
 
   const context = {
     login,
@@ -62,6 +76,8 @@ export const UserContextProvider = ({ children }) => {
     user,
     isLogged,
     updateUser,
+    fetchUser,
+    isAdmin,
   };
 
   return (

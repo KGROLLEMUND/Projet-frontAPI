@@ -30,7 +30,7 @@ const Index = () => {
         {isLogged ? (
           <ul className={styles.navList}>
             <li className={styles.navListItem}>
-              <Link href="#">Trouver un freelance</Link>
+              <Link href="/">Trouver un freelance</Link>
             </li>
 
             <li className={styles.navListItem}>
@@ -38,7 +38,7 @@ const Index = () => {
             </li>
             {isAdmin && (
               <li className={styles.navListItem}>
-                <Link href="#">Admin Panel</Link>
+                <Link href="#">Dashboard</Link>
               </li>
             )}
             <li className={styles.navListItem}>
