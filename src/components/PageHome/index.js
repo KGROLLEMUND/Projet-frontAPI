@@ -18,6 +18,7 @@ const Index = () => {
           title="Bubble le site où trouver les meilleur freelance"
           Level="h1"
         />
+        <p>refresh la page apres insciption </p>
       </div>
       <div className={styles.containerImage}>
         <img src={logo.src} alt="imgHome" />
