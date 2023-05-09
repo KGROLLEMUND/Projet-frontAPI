@@ -18,6 +18,7 @@ const Index = () => {
   const [userForm, setUserForm] = useState({
     yearOfExperience: "",
     rate: "",
+    user: user.firstName,
   });
 
   const { data, error, loading, fetchData } = useFetch({
