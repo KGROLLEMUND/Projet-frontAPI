@@ -10,10 +10,9 @@
 
 .btn {
   display: inline-block;
-
-  font-size: 18px;
-  font-weight: 400;
-  padding: 10px 100px 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-weight: 200;
   color: black;
   text-align: center;
   text-decoration: none;
@@ -21,8 +20,10 @@
   cursor: pointer;
   transition: 0.3s all;
   &__primary {
-    background: white;
-    color: $second_color;
+    background: #000000;
+    color: white;
+    border: 1px solid #000000;
+    border-radius: 30px;
     &:hover {
       background: $second_color;
       border: 1px solid white;
@@ -46,7 +47,6 @@
 
 .logout {
   display: inline-block;
-  font-family: $font_bold;
   font-size: 18px;
   font-weight: 400;
   padding: 10px;
@@ -57,8 +57,10 @@
   cursor: pointer;
   transition: 0.3s all;
   &__primary {
-    background: $first_color;
+    background: #000000;
     color: white;
+    border: 1px solid #000000;
+    border-radius: 30px;
     &:hover {
       background: white;
       border: 1px solid $first_color;

@@ -31,9 +31,9 @@ const Index = () => {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       if (data.isAdmin) {
-        router.push("/admin");
+        router.push("/");
       }
-      router.push("/account/profil");
+      router.push("/");
     }
   }, [data]);
 
@@ -71,7 +71,7 @@ const Index = () => {
           onChange={(e) => handleChange(e)}
           value={userForm.password}
         />
-        <Button type="submit" title="Se connecter" className="btn__secondary" />
+        <Button type="submit" title="Se connecter" className="btn__primary" />
       </form>
       {error && <Notification type="warning" message={error.message} />}
       <p>

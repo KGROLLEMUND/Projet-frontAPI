@@ -1,11 +1,10 @@
-@import "../../../styles/variables.scss";
 
 .centered {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 8px solid $first_color;
+  border: 8px solid black;
   border-radius: 2%;
   background-color: white;
 }
@@ -29,18 +28,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   height: 100px;
 }
 
 .flexItem {
   margin: 0 10px;
   font-size: 40px;
-  font-family: $font_bold;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  span {
-    font-family: $font_regular;
-  }
+  
 }

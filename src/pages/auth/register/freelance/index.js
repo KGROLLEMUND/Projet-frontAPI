@@ -12,18 +12,16 @@ import Notification from "@/components/UI/Notification";
 const Index = () => {
   const router = useRouter();
   const { isLogged, user, updateUser } = useContext(UserContext);
-  console.log("user : ", user.firstName);
   const [token, setToken] = useState();
-  const [clickError, setClickError] = useState(false);
+  const [Error, setError] = useState(false);
 
   const [userForm, setUserForm] = useState({
     yearOfExperience: "",
-
-    user: user.firstName,
+    rate: "",
   });
 
   const { data, error, loading, fetchData } = useFetch({
-    url: "/api/v1/auth/freelance",
+    url: "/auth/freelance",
     method: "POST",
     body: userForm,
     token: token,
@@ -35,9 +33,11 @@ const Index = () => {
     if (token) {
       setToken(token);
     } else {
-      router.push("/auth/register");
+      console.log("error");
     }
   }, []);
+
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,45 +52,41 @@ const Index = () => {
         [name]: value,
       });
     }
-    console.log("user : ", userForm);
   };
 
   const submitRegister = (e) => {
     e.preventDefault();
     fetchData();
-    console.log(userForm);
     if (data.success) {
-      setClickError(false);
+      setError(false);
       console.log("data : ", data);
-      localStorage.setItem("token", data.token);
       router.push("/");
     } else {
-      setClickError(true);
+      setError(true);
     }
   };
 
   return (
     <>
-      <Title title="Company" Level="h1" />
+      <Title title="Freelance" Level="h1" />
       <form onSubmit={(e) => submitRegister(e)}>
-        <Select
-          label="Expérience d'âge"
+        <Input
+          label="Années d'expérience"
           name="yearOfExperience"
           value={userForm.yearOfExperience}
-          isRequired={true}
-          options={[
-            { label: "1 an", value: 1 },
-            { label: "2 ans", value: 2 },
-            { label: "3 ans", value: 3 },
-            { label: "4 ans", value: 4 },
-            { label: "5 ans", value: 5 },
-            { label: "6 ans", value: 6 },
-            { label: "7 ans", value: 7 },
-            { label: "8 ans", value: 8 },
-            { label: "9 ans", value: 9 },
-            { label: "10 ans", value: 10 },
-          ]}
-          onChange={(e) => handleChange(e)}
+          required
+          type="text"
+          placeholder="Combien vous avez d'année d'experience"
+          onChange={handleChange}
+        />
+        <Input
+          label="Rate"
+          name="rate"
+          required
+          value={userForm.rate}
+          type="text"
+          placeholder="veuillez saisir votre rémunération"
+          onChange={handleChange}
         />
 
         <Button
@@ -98,10 +94,10 @@ const Index = () => {
           title="S'inscrire"
           btn="btn"
           className="btn__secondary"
-          handleClick={(e) => submitRegister(e)}
+          handle={(e) => submitRegister(e)}
         />
       </form>
-      {clickError && (
+      {Error && (
         <Notification
           type="warning"
           message="Champs manquant ou incorrect"

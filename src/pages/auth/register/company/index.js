@@ -7,12 +7,13 @@ import Input from "@/components/UI/Input";
 import Button from "@/components/UI/Button";
 import Loading from "@/components/UI/Loading";
 import Title from "@/components/UI/Title";
+import Notification from "@/components/UI/Notification";
 
 const Index = () => {
   const router = useRouter();
   const { isLogged, user, updateUser } = useContext(UserContext);
-
   const [token, setToken] = useState();
+  const [Error, setError] = useState(false);
 
   const [userForm, setUserForm] = useState({
     name: "",
@@ -26,7 +27,7 @@ const Index = () => {
   });
 
   const { data, error, loading, fetchData } = useFetch({
-    url: "/api/v1/auth/company",
+    url: "/auth/company",
     method: "POST",
     body: userForm,
     token: token,
@@ -63,16 +64,17 @@ const Index = () => {
         [name]: value,
       });
     }
-    console.log("user : ", userForm);
   };
 
   const submitRegister = (e) => {
     e.preventDefault();
     fetchData();
-    console.log(userForm);
-    if (data) {
+    if (data.success) {
+      setError(false);
       console.log("data : ", data);
-      localStorage.setItem("token", data.token);
+      router.push("/");
+    } else {
+      setError(true);
     }
   };
 
@@ -150,6 +152,12 @@ const Index = () => {
           handleClick={(e) => submitRegister(e)}
         />
       </form>
+      {Error && (
+        <Notification
+          type="warning"
+          message="Champs manquant ou incorrect"
+        />
+      )}
     </>
   );
 };

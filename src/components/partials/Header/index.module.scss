@@ -1,10 +1,10 @@
 @import "../../../styles/variables.scss";
 
 .header {
-  background-color: $white_color;
-  color: $black_color;
+  background-color: $first_color;
+  color: black;
   height: 60px;
-  border-bottom: 1px solid $black_color;
+  border-bottom: 1px solid black;
   position: fixed;
   top: 0;
   left: 0;
@@ -34,14 +34,14 @@
 }
 
 .navListItem a {
-  color: $black_color;
+  color: black;
   font-size: 1.2rem;
   text-decoration: none;
   text-transform: uppercase;
 }
 
 .navListItem span {
-  color: $black_color;
+  color: black;
   font-size: 1.2rem;
   text-decoration: none;
   text-transform: uppercase;
@@ -52,7 +52,7 @@
 }
 
 .navListItemRight a {
-  color: $black_color;
+  color: black;
   font-size: 1.2rem;
   text-decoration: none;
   text-transform: uppercase;

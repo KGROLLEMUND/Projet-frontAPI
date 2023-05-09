@@ -52,7 +52,7 @@ const Index = () => {
         <Button
           type="submit"
           title="Réinitialiser le mot de passe"
-          className="btn__secondary"
+          className="btn__primary"
         />
       </form>
       {error && <Notification type="warning" message={error.message} />}

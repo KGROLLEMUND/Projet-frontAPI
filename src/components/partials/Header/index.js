@@ -34,11 +34,11 @@ const Index = () => {
             </li>
 
             <li className={styles.navListItem}>
-              <a href="/account/profil">Profil</a>
+              <a href="/profil">Profil</a>
             </li>
             {isAdmin && (
               <li className={styles.navListItem}>
-                <Link href="#">Dashboard</Link>
+                <Link href="/admin">Dashboard</Link>
               </li>
             )}
             <li className={styles.navListItem}>
@@ -61,7 +61,7 @@ const Index = () => {
               <Link href="/auth/login">Se connecter</Link>
             </li>
             <li className={styles.navListItem}>
-              <Link href="/auth/register">Créer un compte</Link>
+              <Link href="/auth/register">S'inscrire</Link>
             </li>
           </ul>
         )}
