@@ -55,7 +55,7 @@ const Index = () => {
         ) : (
           <ul className={styles.navList}>
             <li className={styles.navListItem}>
-              <Link href="#">Trouver un freelance</Link>
+              <Link href="/">Trouver un freelance</Link>
             </li>
             <li className={styles.navListItem}>
               <Link href="/auth/login">Se connecter</Link>

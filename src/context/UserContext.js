@@ -52,6 +52,8 @@ export const UserContextProvider = ({ children }) => {
     setUser(data);
   };
 
+  
+
   const context = {
     login,
     logout,

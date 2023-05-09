@@ -73,15 +73,11 @@ const Index = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const response = fetchData();
     if (data && data.success) {
       setClickError(false);
       console.log("data : ", data);
       console.log(data.token);
-  
-
-    
     } else {
       setError(true);
     }

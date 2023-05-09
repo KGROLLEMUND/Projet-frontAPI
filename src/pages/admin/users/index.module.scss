@@ -1,0 +1,17 @@
+.tab {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: rgb(236, 232, 232);
+    .tableUser,
+    th {
+        background-color: #f8f9f6;
+        font-weight: bold;
+        color: #212529;
+      }
+    td {
+      padding-top: 10px;
+      text-align: left;
+      border-bottom: 1px solid #9c9fa3;
+    }
+  }
